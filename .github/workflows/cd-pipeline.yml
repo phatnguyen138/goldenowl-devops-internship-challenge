@@ -1,0 +1,23 @@
+name: CD pipeline
+
+on:
+  workflow_run:
+    workflows: ["CI pipeline"]
+    types: 
+      - completed
+
+jobs:
+  run-container:
+    runs-on: self-hosted
+    steps:
+    - name: Pull Docker image
+      run: sudo docker pull phatnguyen1812/golden-owl-test:latest
+
+    - name: Delete old docker container (if existed)
+      run: docker rm -f node-app || true
+
+    - name: Run docker container
+      run: docker run -d -p  --name my-nodejs-app phatnguyen1812/golden-owl-test
+
+    
+
