@@ -24,9 +24,10 @@ jobs:
       working-directory: src
 
     - name: Run tests
+      working-directory: src
       id: test
       run: |
-        if npm test --prefix src; then
+        if npm test; then
           echo "result=success"
         else
           echo "result=failure"

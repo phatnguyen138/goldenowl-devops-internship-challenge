@@ -15,10 +15,14 @@ jobs:
     - name: Pull Docker image
       run: docker pull phatnguyen1812/golden-owl-test:latest
 
+    - name: Set docker-compose down
+      working-directory: src
+      run:
+        docker-compose down || true
+
     - name: Run docker-compose
       working-directory: src
-      run: |
-        docker-compose down || true
+      run:
         docker-compose up -d
 
     
