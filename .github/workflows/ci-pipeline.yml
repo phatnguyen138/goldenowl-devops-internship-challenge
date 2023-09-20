@@ -1,4 +1,4 @@
-name: Golden owl test CD/CD pipeline
+name: CI pipeline
 
 on:
   push:
