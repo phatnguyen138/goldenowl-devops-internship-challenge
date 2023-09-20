@@ -7,7 +7,7 @@ on:
       - completed
 
 jobs:
-  run-container:
+  deploy-to-ec2:
     runs-on: self-hosted
     steps:
     - name: Pull Docker image
