@@ -46,8 +46,6 @@ jobs:
   
       - name: Build the Docker image
         run: docker build -f src/Dockerfile --tag phatnguyen1812/golden-owl-test:tagname:latest
-        if: ${{ steps.test.outputs.result == 'success' }}
     
       - name: Push the Docker image into dockerhub
         run: docker push phatnguyen1812/golden-owl-test:tagname:latest
-        if: ${{ steps.test.outputs.result == 'success' }}
