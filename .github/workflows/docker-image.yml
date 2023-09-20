@@ -1,0 +1,25 @@
+name: Golden owl test CD/CD pipeline
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Login into Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
+  
+      - name: Build the Docker image
+        run: docker build -f src/Dockerfile --tag phatnguyen1812/golden-owl-test:tagname:latest
+    
+      - name: Push the Docker image
+        run: docker push phatnguyen1812/golden-owl-test:tagname:latest
