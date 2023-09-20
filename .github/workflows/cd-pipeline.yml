@@ -14,7 +14,7 @@ jobs:
       run: sudo docker pull phatnguyen1812/golden-owl-test:latest
 
     - name: Delete old docker container (if existed)
-      run: docker rm -f node-app || true
+      run: docker rm -f my-nodejs-app || true
 
     - name: Run docker container
       run: docker run -d -p 3000:3000 --name my-nodejs-app phatnguyen1812/golden-owl-test
