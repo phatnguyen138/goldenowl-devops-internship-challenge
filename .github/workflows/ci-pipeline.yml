@@ -45,7 +45,7 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN}}
   
       - name: Build the Docker image
-        run: docker build -f src/Dockerfile --tag phatnguyen1812/golden-owl-test:latest
+        run: docker build -f src/Dockerfile --tag phatnguyen1812/golden-owl-test:latest .
     
       - name: Push the Docker image into dockerhub
         run: docker push phatnguyen1812/golden-owl-test:latest
